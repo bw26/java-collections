@@ -1,11 +1,14 @@
 import Model.*;
 import Repo.DataRepo;
+
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         ex1();
         ex2();
+        ex3();
     }
 
     private static void ex1() { // Range of people
@@ -30,7 +33,10 @@ public class Main {
 
     private static void ex3() { // People Uppercase
         // TODO...
-
+        ArrayList<Person> people = DataRepo.getPeople();
+        people.forEach(person -> person.setFirstName(person.getFirstName().toUpperCase()));
+        people.forEach(person -> person.setLastName(person.getLastName().toUpperCase()));
+        System.out.println(people);
     }
 
     private static void ex4() { // Word counter
