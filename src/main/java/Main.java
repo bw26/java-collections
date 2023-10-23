@@ -1,7 +1,6 @@
 import Model.*;
 import Repo.DataRepo;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class Main {
@@ -9,6 +8,7 @@ public class Main {
         ex1();
         ex2();
         ex3();
+        ex4();
     }
 
     private static void ex1() { // Range of people
@@ -41,7 +41,12 @@ public class Main {
 
     private static void ex4() { // Word counter
         // TODO...
-
+        HashMap<String,Integer> count = new HashMap<String,Integer>();
+        for(String s : DataRepo.readFile()){
+            if (count.containsKey(s)) count.put(s,count.get(s)+1);
+            else count.put(s,1);
+        }
+        count.forEach((word,c) -> System.out.println(word+" " +c));
     }
 
     private static void ex5() { // Sorted word counter
