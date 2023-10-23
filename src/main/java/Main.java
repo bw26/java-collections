@@ -9,6 +9,7 @@ public class Main {
         ex2();
         ex3();
         ex4();
+        ex5();
     }
 
     private static void ex1() { // Range of people
@@ -51,6 +52,11 @@ public class Main {
 
     private static void ex5() { // Sorted word counter
         // TODO...
-
+        HashMap<String,Integer> count = new HashMap<String,Integer>();
+        for(String s : DataRepo.readFile()) {
+            if (count.containsKey(s)) count.put(s, count.get(s) + 1);
+            else count.put(s, 1);
+        }
+        count.entrySet().stream().sorted(Map.Entry.<String,Integer>comparingByValue()).forEach(e -> System.out.println(e.getKey() + " " + e.getValue()));
     }
 }
