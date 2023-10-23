@@ -9,7 +9,11 @@ public class Main {
 
     private static void ex1() { // Range of people
         // TODO...
-
+        ArrayList<Person> people = new ArrayList<Person>();
+        for(Person p : DataRepo.getPeople()){
+            if (p.getAge() >= 20 && p.getAge()<=40) people.add(p);
+        }
+        System.out.println(people);
     }
 
     private static void ex2() { // Average Displacement
